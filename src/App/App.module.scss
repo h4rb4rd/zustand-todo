@@ -1,0 +1,40 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 56px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  min-height: 450px;
+  background-color: var(--color-white);
+  border-radius: 20px;
+  padding: 20px 48px;
+}
+
+.title {
+  font: var(--font-xxl);
+  margin-bottom: 15px;
+}
+
+.todos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .app {
+    padding: 46px;
+  }
+
+  .container {
+    width: 350px;
+    min-height: 500px;
+  }
+}

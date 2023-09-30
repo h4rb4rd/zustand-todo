@@ -1,0 +1,12 @@
+.button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.button:hover .icon {
+  filter: var(--filter-hover);
+}

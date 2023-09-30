@@ -1,0 +1,11 @@
+.add {
+  display: flex;
+  align-items: center;
+  width: 350px;
+}
+
+@media screen and (max-width: 768px) {
+  .add {
+    width: 250px;
+  }
+}

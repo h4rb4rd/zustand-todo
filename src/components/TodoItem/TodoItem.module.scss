@@ -1,0 +1,14 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  background-color: var(--color-light-blue);
+  padding: 10px 15px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

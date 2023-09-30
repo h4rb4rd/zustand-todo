@@ -1,1 +1,1 @@
-# zustand-todo
+# React + TypeScript + Vite + Zustand
