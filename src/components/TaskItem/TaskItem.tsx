@@ -55,6 +55,7 @@ export const TaskItem = memo(
             [cls.completed]: isCompleted,
           })}
           label={title}
+          value={isCompleted}
           onChange={handleCompleteTask}
         />
         <div className={cls.icons}>

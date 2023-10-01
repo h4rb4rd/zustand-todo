@@ -1,21 +1,20 @@
-import {create} from 'zustand';
+import {create, StateCreator} from 'zustand';
+import {persist, devtools} from 'zustand/middleware';
 
 import {generateId} from '@/utils/index';
-import {Task} from '@/types';
+import {FiltersEnum, Task} from '@/types';
 
-type TodosState = {
+export type TodosState = {
   tasks: Task[];
-};
-
-type TodosActions = {
   createTask: (title: string) => void;
   updateTask: (id: string, title: string) => void;
   completeTask: (id: string) => void;
   deleteTask: (id: string) => void;
 };
 
-export const useTodosStore = create<TodosState & TodosActions>((set, get) => ({
+const todosStore: StateCreator<TodosState, [], []> = (set, get) => ({
   tasks: [],
+  tasksCount: 0,
   createTask: title => {
     const {tasks} = get();
     const newTask: Task = {
@@ -57,4 +56,27 @@ export const useTodosStore = create<TodosState & TodosActions>((set, get) => ({
       tasks: tasks.filter(task => task.id !== id),
     });
   },
-}));
+});
+
+export const useTodosStore = create<TodosState>()(
+  devtools(persist(todosStore, {name: 'todos'}))
+);
+
+type FilterState = {
+  filter: FiltersEnum;
+  setFilter: (filter: FiltersEnum) => void;
+};
+
+const filterStore: StateCreator<FilterState, [], []> = set => ({
+  filter: FiltersEnum.ALL,
+
+  setFilter: filter => {
+    set({
+      filter,
+    });
+  },
+});
+
+export const useFilterStore = create<FilterState>()(
+  devtools(persist(filterStore, {name: 'filter'}))
+);

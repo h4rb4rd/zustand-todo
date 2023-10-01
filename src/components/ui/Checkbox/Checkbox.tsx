@@ -11,7 +11,7 @@ type HTMLInputProps = Omit<
 
 interface CheckboxProps extends HTMLInputProps {
   className?: string;
-  value?: string | number;
+  value?: boolean;
   label?: string;
   onChange?: (value: string) => void;
   disabled?: boolean;
@@ -33,7 +33,7 @@ export const Checkbox = memo((props: CheckboxProps) => {
       <input
         className={cls.checkbox}
         type="checkbox"
-        value={value}
+        checked={value}
         onChange={onChangeHandler}
         disabled={disabled}
         {...otherProps}

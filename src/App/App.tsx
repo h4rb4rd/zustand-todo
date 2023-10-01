@@ -1,5 +1,6 @@
 import {AddTask} from '@/components/AddTask';
 import {Divider} from '@/components/ui/Divider';
+import {Filters} from '@/components/Filters';
 import {Placeholder} from '@/components/ui/Placeholder';
 import {TaskList} from '@/components/TaskList';
 import {useTodosStore} from '@/store';
@@ -7,7 +8,7 @@ import {useTodosStore} from '@/store';
 import cls from './App.module.scss';
 
 export const App = () => {
-  const tasks = useTodosStore(state => state.tasks);
+  const tasksCount = useTodosStore(state => state.tasks.length);
 
   return (
     <div className={cls.app}>
@@ -15,11 +16,8 @@ export const App = () => {
         <h1 className={cls.title}>To Do App</h1>
         <AddTask />
         <Divider />
-        {tasks.length ? (
-          <TaskList tasks={tasks} />
-        ) : (
-          <Placeholder text="Task list is empty" />
-        )}
+        <Filters />
+        {tasksCount ? <TaskList /> : <Placeholder text="Task list is empty" />}
       </div>
     </div>
   );

@@ -1,0 +1,17 @@
+.filters {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.checked {
+  background-color: var(--color-gray);
+}
+
+@media screen and (max-width: 768px) {
+  .filters {
+    margin-bottom: 10px;
+  }
+}

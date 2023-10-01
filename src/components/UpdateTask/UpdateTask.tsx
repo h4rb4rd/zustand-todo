@@ -42,6 +42,7 @@ export const UpdateTask = memo(
         <Button disabled={!taskTitle} onClick={handleUpdateTask}>
           <Icon Svg={AcceptIcon} />
         </Button>
+        <Button onClick={handleEditMode}>&#10006;</Button>
       </div>
     );
   }
