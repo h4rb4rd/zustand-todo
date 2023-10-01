@@ -43,4 +43,9 @@
 .label {
   font: var(--font-m);
   color: var(--color-dark-blue);
+
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }

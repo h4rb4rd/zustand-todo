@@ -6,13 +6,13 @@ import {Input} from '@/components/ui/Input';
 import {Icon} from '@/components/ui/Icon';
 import {useTodosStore} from '@/store';
 
-import cls from './AddTodo.module.scss';
+import cls from './AddTask.module.scss';
 
-interface AddTodoProps {
+interface AddTaskProps {
   className?: string;
 }
 
-export const AddTodo = memo(({className}: AddTodoProps) => {
+export const AddTask = memo(({className}: AddTaskProps) => {
   const [taskTitle, setTaskTitle] = useState('');
   const createTask = useTodosStore(state => state.createTask);
 
@@ -22,6 +22,7 @@ export const AddTodo = memo(({className}: AddTodoProps) => {
 
   const handleCreateTask = useCallback(() => {
     createTask(taskTitle);
+    setTaskTitle('');
   }, [taskTitle, createTask]);
 
   return (

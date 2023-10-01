@@ -1,14 +1,7 @@
 import {create} from 'zustand';
 
 import {generateId} from '@/utils/index';
-
-type Task = {
-  id: string;
-  title: string;
-  createdAt: number;
-  updatedAt: number;
-  isCompleted: boolean;
-};
+import {Task} from '@/types';
 
 type TodosState = {
   tasks: Task[];
